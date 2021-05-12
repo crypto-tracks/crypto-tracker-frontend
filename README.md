@@ -1,2 +1,2 @@
-# cryto-tracker-front-end
-The React Front End for Crypto Tracker
+# cryto-tracker-frontend
+The React Frontend for Crypto Tracker
