@@ -9,7 +9,7 @@ import LogoutButton from '../Auth0/LogoutButton';
 class Header extends React.Component {
 
   render() {
-    const { isAuthenticated } = this.props.auth0;
+    const { user, isAuthenticated } = this.props.auth0;
     return (
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand href="/">Crypto-Tracker</Navbar.Brand>
@@ -17,7 +17,7 @@ class Header extends React.Component {
         { isAuthenticated
           ? <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-              <NavDropdown title="" id="collasible-nav-dropdown">
+              <NavDropdown title= {user.name} id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/">Home</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item>{ isAuthenticated ? <LogoutButton /> : <LoginButton /> }</NavDropdown.Item>
