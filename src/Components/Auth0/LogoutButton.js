@@ -1,14 +1,14 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import '../Auth0/LogButtons.css';
+import { Button } from 'react-bootstrap';
 
 const LogoutButton = () => {
 const { logout } = useAuth0();
 
   return (
-    <button type="button" className="btnOut" onClick={() => logout({ returnTo: window.location.origin})}>
+    <Button cy-data='logout-button' variant="outline-primary" onClick={() => logout({ returnTo: window.location.origin})}>
     Log Out
-    </button>
+    </Button>
   );
 };
 
