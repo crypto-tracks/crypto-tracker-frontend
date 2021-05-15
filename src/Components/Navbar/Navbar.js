@@ -12,19 +12,21 @@ class Header extends React.Component {
     const { user, isAuthenticated } = this.props.auth0;
     return (
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/">Crypto-Tracker</Navbar.Brand>
+        <Navbar.Brand href="/">Crypto Tracks</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         { isAuthenticated
           ? <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <NavDropdown title= {user.name} id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/">Home</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item>{ isAuthenticated ? <LogoutButton /> : <LoginButton /> }</NavDropdown.Item>
+            <Nav className="mr-auto navbarScroll">
+              <NavDropdown style={{'font-size': '20px'}} title="Tracked Crypto" id="collapsible-nav-dropdown">
+                <NavDropdown.Item href="/">Coin #1</NavDropdown.Item>
+                <NavDropdown.Item href="/">Coin #2</NavDropdown.Item>
+                <NavDropdown.Item href="/">Coin #3</NavDropdown.Item>
+                <NavDropdown.Item href="/">Coin #4</NavDropdown.Item>
+                <NavDropdown.Item href="/">Coin #5</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav className="ml-auto">
-
+              <LogoutButton />
             </Nav>
           </Navbar.Collapse>
           : <Navbar.Collapse id="responsive-navbar-nav">
