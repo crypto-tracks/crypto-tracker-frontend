@@ -9,7 +9,7 @@ import LogoutButton from '../Auth0/LogoutButton';
 class Header extends React.Component {
 
   render() {
-    const { user, isAuthenticated } = this.props.auth0;
+    const { isAuthenticated } = this.props.auth0;
     return (
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand href="/">Crypto Tracks</Navbar.Brand>
