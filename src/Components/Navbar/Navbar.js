@@ -5,6 +5,8 @@ import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../Auth0/LoginButton';
 import LogoutButton from '../Auth0/LogoutButton';
 
+import './Navbar.css';
+
 
 class Header extends React.Component {
 
