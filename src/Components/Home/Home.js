@@ -7,7 +7,8 @@ class Home extends React.Component {
     super(props);
     this.state = {
       haveSearched: false,
-      infoSearched: ''
+      infoSearched: '',
+      newsResults: []
     };
   }
 
@@ -20,8 +21,9 @@ class Home extends React.Component {
       // console.log('info searched');
     } else {
       try {
-        let response = await axios.get(`https://www.google.com/search?q=${infoSearched}`);
+        let response = await axios.get(`${process.env.REACT_APP_CRYPTO_TRACKS_API}/news?q=${infoSearched}`);
         console.log('works', response);
+        this.setState({newsResults: response.data});
       } catch (err) {
         console.log(err);
       }
@@ -33,6 +35,7 @@ class Home extends React.Component {
     return (
       <>
         <Search handleSearch={this.handleSearch} />
+        <News new={this.state.newsResults} />
       </>
     )
   }
