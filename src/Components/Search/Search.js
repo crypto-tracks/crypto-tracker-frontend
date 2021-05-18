@@ -16,8 +16,8 @@ render() {
   return (
    <Form onSubmit={this.handleSubmit}>
      <Form.Group>
-       <Form.Label>Enter Text</Form.Label>
-       <Form.Control placeholder="Enter Text..." size="lg" type="text" ref={this.textInput} />
+       <Form.Label>Search for Crypto</Form.Label>
+       <Form.Control placeholder="Enter Symbol or Name..." size="lg" type="text" ref={this.textInput} />
      </Form.Group>
      <Button variant="primary" type="submit">
        Search

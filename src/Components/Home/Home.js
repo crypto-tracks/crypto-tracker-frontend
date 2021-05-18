@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import Search from '../Search/Search';
 
+const axios = require('axios');
 class Home extends React.Component {
   constructor(props) {
     super(props);

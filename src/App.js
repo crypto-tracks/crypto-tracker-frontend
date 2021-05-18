@@ -1,26 +1,20 @@
 import React from 'react';
-import axios from 'axios';
 
-import Home from './Components/Home/Home';
-
-
-import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Navbar/Navbar';
+import Home from './Components/Home/Home';
+import { withAuth0 } from '@auth0/auth0-react';
 
 
-
-
-
-
-class App extends React.Component {
-
-  render() {
-    return (
-      <>
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Header />
         <Home />
-      </>
-    )
-  }
+      </header>
+    </div>
+  );
 }
 
-export default App;
+export default withAuth0(App);
