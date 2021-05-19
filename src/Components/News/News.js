@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Accordion } from 'react-bootstrap';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
 
@@ -9,7 +9,6 @@ TimeAgo.addDefaultLocale(en);
 class News extends React.Component {
   render() {
     const timeAgo = new TimeAgo('en-US');
-    // TODO: Sort by most recent
     let news = this.props.news.map((item) => (
       <tr key={item.id}>
         <td>{timeAgo.format(new Date(item.published), 'mini')}</td>
@@ -26,15 +25,22 @@ class News extends React.Component {
       </tr>
     ));
     return (
-      <Table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Title</th>
-          </tr>
-        </thead>
-        <tbody>{news}</tbody>
-      </Table>
+      <Accordion defaultActiveKey="0">
+        <Accordion.Toggle as="h2" variant="link" eventKey="0">
+          News
+        </Accordion.Toggle>
+        <Accordion.Collapse eventKey="0">
+          <Table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th style={{textAlign: 'center'}}>Title</th>
+              </tr>
+            </thead>
+            <tbody>{news}</tbody>
+          </Table>
+        </Accordion.Collapse>
+      </Accordion>
     );
   }
 }

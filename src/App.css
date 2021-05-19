@@ -30,3 +30,6 @@ body, main {
   scrollbar-width: none;
 }
 
+.accordion {
+  margin-bottom: 10px;
+}
