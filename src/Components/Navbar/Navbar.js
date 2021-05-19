@@ -1,12 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../Auth0/LoginButton';
 import LogoutButton from '../Auth0/LogoutButton';
 
 import './Navbar.css';
 
+// TODO: Populate Tracked Coins from user saved coins
+// TODO: Replace Hardcoded Values
 
 class Header extends React.Component {
 
@@ -19,12 +21,12 @@ class Header extends React.Component {
         { isAuthenticated
           ? <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto navbarScroll">
-              <NavDropdown style={{'font-size': '20px'}} title="Tracked Crypto" id="collapsible-nav-dropdown">
-                <NavDropdown.Item href="/">Coin #1</NavDropdown.Item>
-                <NavDropdown.Item href="/">Coin #2</NavDropdown.Item>
-                <NavDropdown.Item href="/">Coin #3</NavDropdown.Item>
-                <NavDropdown.Item href="/">Coin #4</NavDropdown.Item>
-                <NavDropdown.Item href="/">Coin #5</NavDropdown.Item>
+              <NavDropdown style={{'fontSize': '20px'}} title="Tracked Crypto" id="collapsible-nav-dropdown">
+                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('xrp')}>XRP</Button>
+                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('btc')}>BTC</Button>
+                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('doge')}>DOGE</Button>
+                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('ltc')}>LTC</Button>
+                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('celo')}>CELO</Button>
               </NavDropdown>
             </Nav>
             <Nav className="ml-auto">
