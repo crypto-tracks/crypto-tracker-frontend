@@ -10,6 +10,7 @@ class Home extends React.Component {
       haveSearched: false,
       infoSearched: "",
       newsResults: [],
+      searchTerms: [],
     };
   }
 
@@ -32,7 +33,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <Search handleSearch={this.handleSearch} />
+        <Search handleSearch={this.handleSearch} suggestions={this.state.searchTerms} />
         {this.state.haveSearched ? <News news={this.state.newsResults} /> : ""}
       </>
     );
