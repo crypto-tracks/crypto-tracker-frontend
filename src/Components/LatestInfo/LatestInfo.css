@@ -1,0 +1,15 @@
+h2 {
+  background-color: azure;
+  width: 100vw;
+  color: black;
+  margin-bottom: 0px !important;
+  border-radius: 6px;
+}
+
+.latest-info td:nth-of-type(even) {
+  text-align: right !important;
+}
+
+.table td:first-of-type, .table td:nth-of-type(2) {
+  border-top: none;
+}
