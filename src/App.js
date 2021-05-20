@@ -5,6 +5,11 @@ import Header from "./Components/Navbar/Navbar";
 import LatestInfo from "./Components/LatestInfo/LatestInfo";
 import Search from "./Components/Search/Search";
 import News from "./Components/News/News";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 import { withAuth0 } from "@auth0/auth0-react";
 
 const axios = require("axios");
@@ -51,8 +56,7 @@ class App extends React.Component {
           `${process.env.REACT_APP_CRYPTO_TRACKS_API}/news?q=${infoSearched}`
         );
         let coinResponse = await axios.get(
-          `${
-            process.env.REACT_APP_CRYPTO_TRACKS_API
+          `${process.env.REACT_APP_CRYPTO_TRACKS_API
           }/coin-latest?symbol=${this.getSymbol(infoSearched)}`
         );
         // console.log("News Works: ", newResponse.data);
@@ -75,19 +79,29 @@ class App extends React.Component {
   //TODO: Add Save / Delete Component Above Latest Info
   render() {
     return (
-      <div className="App">
-        <Header handleSearch={this.handleSearch} />
-        <Search
-          handleSearch={this.handleSearch}
-          suggestions={this.state.searchTerms}
-        />
-        {this.state.haveSearched ? (
-          <LatestInfo price={this.state.coinLatest} />
-        ) : (
-          ""
-        )}
-        {this.state.haveSearched ? <News news={this.state.newsResults} /> : ""}
-      </div>
+      <Router>
+        <div className="App">
+          <Header handleSearch={this.handleSearch} />
+          <Switch>
+            <Route exact path="/">
+              <Search
+                handleSearch={this.handleSearch}
+                suggestions={this.state.searchTerms}
+              />
+              {this.state.haveSearched ? (
+                <LatestInfo price={this.state.coinLatest} />
+              ) : (
+                ""
+              )}
+              {this.state.haveSearched ? (
+                <News news={this.state.newsResults} /> 
+              ) : (
+                ""
+              )}
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
