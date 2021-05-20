@@ -153,6 +153,7 @@ class Search extends Component {
           <Button variant="primary" type="submit">
             Search
           </Button>
+          { this.props.haveSearched ? <Button disabled={this.props.loading} onClick={() => this.props.addUserCoin(this.props.activeCoin)}>Add Coin</Button> : ''}
         </Form>
       </Container>
     );
