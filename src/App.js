@@ -46,25 +46,24 @@ class App extends React.Component {
     }
   };
 
-  addUserCoin = () => {
-    axios
-      .post(`${process.env.REACT_APP_CRYPTO_TRACKS_API}/tracked/update`, {
-        symbol: this.state.coinLatest.symbol,
-        email: this.props.auth0.user.email,
-      })
-      .then(this.getUserCoins());
+  addUserCoin = async () => {
+    await axios.post(`${process.env.REACT_APP_CRYPTO_TRACKS_API}/tracked/update`, {
+      symbol: this.state.coinLatest.symbol,
+      email: this.props.auth0.user.email,
+    });
+    this.getUserCoins();
   };
 
   deleteUserCoin = async (coin) => {
     console.log(coin);
     console.log(this.props.auth0.user.email);
-    axios.delete(`${process.env.REACT_APP_CRYPTO_TRACKS_API}/tracked/delete`, {
-        data: {
-          symbol: coin,
-          email: this.props.auth0.user.email,
-        }
-      })
-      .then(this.getUserCoins());
+    await axios.delete(`${process.env.REACT_APP_CRYPTO_TRACKS_API}/tracked/delete`, {
+      data: {
+        symbol: coin,
+        email: this.props.auth0.user.email,
+      },
+    });
+    this.getUserCoins();
   };
 
   getCoins = async () => {
