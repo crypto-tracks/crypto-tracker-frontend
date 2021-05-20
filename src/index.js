@@ -1,21 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
 
 // from Auth0 quickstart
 ReactDOM.render(
-  <Auth0Provider
-    domain="crypto-tracks.us.auth0.com"
-    clientId="ia2oczsnhx7gaLt5R9PMPnxasQvljWnY"
-    redirectUri={window.location.origin}
-  >
-    <App />
-  </Auth0Provider>,
+  <Router>
+    <Auth0Provider
+      domain="crypto-tracks.us.auth0.com"
+      clientId="ia2oczsnhx7gaLt5R9PMPnxasQvljWnY"
+      redirectUri={window.location.origin}
+    >
+      <App />
+    </Auth0Provider>
+  </Router>,
 
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
