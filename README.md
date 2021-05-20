@@ -1,14 +1,28 @@
-# Getting Started with Crypto-Tracker
+# Crypto-Tracks
 
-## Available Scripts
+## Team Members: 
+- Tom McGuire
+- Michael Ryan
+- Tyler Johnson
 
-### `npm start`
+#### Project Description
+Crypto-Tracks is a responsive web app that allows the user to search for a coin and recieve prices, news and save coins they wish to track.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Problem Domain
+Crypto-Tracks hopes to address the problem of organization in a specific space: the Crypto market. The app allows users to select what coins they wish to track and displays price and news information for those coins.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+
+### Libraries, Frameworks, and Packages:
+- Express
+- Bootstrap
+- MongoDB and Mongoose
+- Auth0
+
+### Instructions to run application: 
+- Clone repo
+- run npm install
+- run npm start
+
 
 ### Crypto-Tracker Wireframe:
 ![wireframe](./Crypto-Tracker.png)
