@@ -4,6 +4,7 @@ import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../Auth0/LoginButton';
 import LogoutButton from '../Auth0/LogoutButton';
+import AboutUs from '../AboutUs/AboutUs';
 
 import './Navbar.css';
 
@@ -17,6 +18,7 @@ class Header extends React.Component {
     return (
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand href="/">Crypto Tracks</Navbar.Brand>
+        <Nav.Link className = "nav-link" href="../AboutUs/AboutUs.js">About Us</Nav.Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         { isAuthenticated
           ? <Navbar.Collapse id="responsive-navbar-nav">
