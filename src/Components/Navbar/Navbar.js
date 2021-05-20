@@ -12,9 +12,14 @@ import './Navbar.css';
 // TODO: Replace Hardcoded Values
 
 class Header extends React.Component {
-
   render() {
     const { isAuthenticated } = this.props.auth0;
+    let coins = this.props.userCoins.map((coin, index) => (
+      <div key={index}>
+        <Button style={{width: "25%"}} variant="danger" onClick={() => this.props.deleteUserCoin(coin)}>Remove</Button>
+        <Button style={{width: "75%"}} variant="secondary" onClick={() => this.props.handleSearch(coin)}>{coin}</Button>
+      </div>
+    ));
     return (
       <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Navbar.Brand href="/">Crypto Tracks</Navbar.Brand>
@@ -24,11 +29,7 @@ class Header extends React.Component {
           ? <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto navbarScroll">
               <NavDropdown style={{'fontSize': '20px'}} title="Tracked Crypto" id="collapsible-nav-dropdown">
-                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('xrp')}>XRP</Button>
-                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('btc')}>BTC</Button>
-                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('doge')}>DOGE</Button>
-                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('ltc')}>LTC</Button>
-                <Button style={{width: "100%"}} variant="secondary" onClick={() => this.props.handleSearch('celo')}>CELO</Button>
+                {coins}
               </NavDropdown>
             </Nav>
             <Nav className="ml-auto">

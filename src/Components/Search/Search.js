@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import PropTypes from "prop-types";
+import { withAuth0 } from "@auth0/auth0-react";
 
 import './Search.css';
 
@@ -91,6 +92,7 @@ class Search extends Component {
   };
 
   render() {
+    const { isAuthenticated } = this.props.auth0;
     const {
       onChange,
       onClick,
@@ -150,13 +152,14 @@ class Search extends Component {
             />
             {suggestionsListComponent}
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button style={{margin: '10px 10px'}} variant="primary" type="submit">
             Search
           </Button>
+          { this.props.haveSearched && isAuthenticated ? <Button style={{margin: '10px 10px'}} variant="primary" onClick={() => this.props.addUserCoin(this.props.activeCoin)}>Add Coin</Button> : ''}
         </Form>
       </Container>
     );
   }
 }
       
-export default Search;
+export default withAuth0(Search);
