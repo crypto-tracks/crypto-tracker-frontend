@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../Auth0/LoginButton';
 import LogoutButton from '../Auth0/LogoutButton';
@@ -20,15 +20,13 @@ class Header extends React.Component {
       </div>
     ));
     return (
-      <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar fixed="top" collapseOnSelect expand="false" bg="dark" variant="dark">
         <Navbar.Brand href="/">Crypto Tracks</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         { isAuthenticated
           ? <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto navbarScroll">
-              <NavDropdown style={{'fontSize': '20px'}} title="Tracked Crypto" id="collapsible-nav-dropdown">
-                {coins}
-              </NavDropdown>
+              {coins}
             </Nav>
             <Nav className="ml-auto">
               <LogoutButton />
