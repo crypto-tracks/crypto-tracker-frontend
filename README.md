@@ -1,6 +1,11 @@
 # Getting Started with Crypto-Tracker
 
-## Available Scripts
+
+### Setup `.env` file
+
+```.env
+REACT_APP_CRYPTO_TRACKS_API=<server url>
+```
 
 ### `npm start`
 
@@ -11,4 +16,5 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### Crypto-Tracker Wireframe:
+
 ![wireframe](./Crypto-Tracker.png)

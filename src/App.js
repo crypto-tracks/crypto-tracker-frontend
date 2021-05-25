@@ -47,6 +47,7 @@ class App extends React.Component {
   };
 
   addUserCoin = async () => {
+    // TODO: Assign response to state
     await axios.post(`${process.env.REACT_APP_CRYPTO_TRACKS_API}/tracked/update`, {
       symbol: this.state.coinLatest.symbol,
       email: this.props.auth0.user.email,
@@ -57,6 +58,7 @@ class App extends React.Component {
   deleteUserCoin = async (coin) => {
     console.log(coin);
     console.log(this.props.auth0.user.email);
+    // TODO: Assign response to state
     await axios.delete(`${process.env.REACT_APP_CRYPTO_TRACKS_API}/tracked/delete`, {
       data: {
         symbol: coin,
