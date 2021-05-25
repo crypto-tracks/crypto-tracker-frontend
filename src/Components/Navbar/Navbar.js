@@ -25,7 +25,7 @@ class Header extends React.Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         { isAuthenticated
           ? <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto navbarScroll">
+            <Nav className="mr-auto navbarScroll coins">
               {coins}
             </Nav>
             <Nav className="ml-auto">

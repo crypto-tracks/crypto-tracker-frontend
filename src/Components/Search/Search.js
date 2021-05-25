@@ -138,7 +138,7 @@ class Search extends Component {
 
     return (
       <Container fluid>
-        <Form style={{ margin: "10vh 0px" }} onSubmit={this.handleSubmit}>
+        <Form style={{ margin: "15vh 0px" }} onSubmit={this.handleSubmit}>
           <Form.Group>
             <Form.Label style={{ fontSize: '20px'}}>Search for Crypto</Form.Label>
             <Form.Control
