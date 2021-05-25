@@ -14,7 +14,6 @@ class News extends React.Component {
         <td>{timeAgo.format(new Date(item.published), 'mini')}</td>
         <td>
           <a
-            style={{ color: '#D1CDC7' }}
             href={item.link}
             target='_blank'
             rel='noreferrer'

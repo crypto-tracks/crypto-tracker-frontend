@@ -1,3 +1,8 @@
 .nav-link {
   padding: 5px;
 }
+
+#responsive-navbar-nav .coins {
+  max-height: 70vh;
+  overflow-y: scroll;
+}
