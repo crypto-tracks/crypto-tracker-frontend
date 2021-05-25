@@ -60,3 +60,7 @@ h2 {
 .btn.btn-secondary, .btn.btn-danger {
   border: unset;
 }
+
+.accordion h2:hover {
+  cursor: pointer;
+}
