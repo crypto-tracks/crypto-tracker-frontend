@@ -3,20 +3,17 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 // from Auth0 quickstart
 ReactDOM.render(
-  <Router>
     <Auth0Provider
       domain="crypto-tracks.us.auth0.com"
       clientId="ia2oczsnhx7gaLt5R9PMPnxasQvljWnY"
       redirectUri={window.location.origin}
     >
       <App />
-    </Auth0Provider>
-  </Router>,
+    </Auth0Provider>,
 
   document.getElementById("root")
 );
