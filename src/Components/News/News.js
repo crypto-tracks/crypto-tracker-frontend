@@ -14,6 +14,7 @@ class News extends React.Component {
         <td>{timeAgo.format(new Date(item.published), 'mini')}</td>
         <td>
           <a
+          // it makes me a little sad that this isn't in a CSS file
             style={{ color: '#D1CDC7' }}
             href={item.link}
             target='_blank'

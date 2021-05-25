@@ -122,6 +122,7 @@ class App extends React.Component {
   render() {
     return (
       <>
+      {/* Real weird that you have a Router with no Routes! I don't think you need the Router. */}
         <Router>
           <IsLoadingAndError>
             <div className="App">

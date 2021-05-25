@@ -7,6 +7,7 @@ class LatestInfo extends React.Component {
   render() {
     return (
       <Accordion defaultActiveKey="0">
+        {/* I literally didn't realize you could toggle these until I read this code! Having the headers be a bit more visually spaced might help, as would changing the cursor when hovering over them. */}
         <Accordion.Toggle as="h2" variant="link" eventKey="0">
           Latest on {this.props.price.symbol}
         </Accordion.Toggle>
@@ -17,6 +18,7 @@ class LatestInfo extends React.Component {
                 <td>Price USD</td>
                 <td>
                   $
+                  {/* You should really define the locale in your toLocaleString, even as a hardcoded en-US is better than nothing. */}
                   {this.props.price.quoteUsd.price.toLocaleString(undefined, {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
