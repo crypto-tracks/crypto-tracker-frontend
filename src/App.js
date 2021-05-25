@@ -7,7 +7,6 @@ import Search from "./Components/Search/Search";
 import News from "./Components/News/News";
 import { withAuth0 } from "@auth0/auth0-react";
 import IsLoadingAndError from "./IsLoadingAndError";
-import { BrowserRouter as Router } from "react-router-dom";
 
 const axios = require("axios");
 class App extends React.Component {
@@ -33,6 +32,7 @@ class App extends React.Component {
     while (this.props.auth0.isLoading === true) {
       await this.timeout(200);
     }
+    console.log("Auth0: ", this.props.auth0);
     console.log("Auth0 User: ", this.props.auth0.user);
     if (this.props.auth0.user !== undefined) {
       const response = await axios.get(
@@ -73,6 +73,10 @@ class App extends React.Component {
       `${process.env.REACT_APP_CRYPTO_TRACKS_API}/coins`
     );
     const coins = response.data;
+    // [
+    //  [['BTC', 'Bitcoin'], ['BTC']]
+    //  [['LTC', 'Litecoin'], ['LTC']]
+    // ]
     let searchTuples = coins.map((coin) => [coin.searchTerms, coin.symbol]);
     let validSearchTerms = searchTuples.reduce((a, b) => a.concat(b[0]), []);
     this.setState({
@@ -124,35 +128,33 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Router>
-          <IsLoadingAndError>
-            <div className="App">
-              <Header
-                handleSearch={this.handleSearch}
-                userCoins={this.state.userCoins}
-                deleteUserCoin={this.deleteUserCoin}
-              />
-              <Search
-                handleSearch={this.handleSearch}
-                suggestions={this.state.searchTerms}
-                haveSearched={this.state.haveSearched}
-                activeCoin={this.state.coinLatest.symbol}
-                addUserCoin={this.addUserCoin}
-                loading={this.loading}
-              />
-              {this.state.haveSearched ? (
-                <LatestInfo price={this.state.coinLatest} />
-              ) : (
-                ""
-              )}
-              {this.state.haveSearched ? (
-                <News news={this.state.newsResults} />
-              ) : (
-                ""
-              )}
-            </div>
-          </IsLoadingAndError>
-        </Router>
+        <IsLoadingAndError>
+          <div className="App">
+            <Header
+              handleSearch={this.handleSearch}
+              userCoins={this.state.userCoins}
+              deleteUserCoin={this.deleteUserCoin}
+            />
+            <Search
+              handleSearch={this.handleSearch}
+              suggestions={this.state.searchTerms}
+              haveSearched={this.state.haveSearched}
+              activeCoin={this.state.coinLatest.symbol}
+              addUserCoin={this.addUserCoin}
+              loading={this.loading}
+            />
+            {this.state.haveSearched ? (
+              <LatestInfo price={this.state.coinLatest} />
+            ) : (
+              ""
+            )}
+            {this.state.haveSearched ? (
+              <News news={this.state.newsResults} />
+            ) : (
+              ""
+            )}
+          </div>
+        </IsLoadingAndError>
       </>
     );
   }

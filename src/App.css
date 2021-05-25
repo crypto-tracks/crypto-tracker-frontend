@@ -21,11 +21,11 @@
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar, main::-webkit-scrollbar {
+.navbarScroll::-webkit-scrollbar, body::-webkit-scrollbar, main::-webkit-scrollbar {
   display: none;
 }
 
-body, main {
+.navbarScroll, body, main {
   -ms-overflow-style: none;  
   scrollbar-width: none;
 }
@@ -59,4 +59,8 @@ h2 {
 
 .btn.btn-secondary, .btn.btn-danger {
   border: unset;
+}
+
+.accordion h2:hover {
+  cursor: pointer;
 }
